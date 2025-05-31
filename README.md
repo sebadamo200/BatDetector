@@ -50,6 +50,25 @@ bat_classifier/
 
 ## Setup and Usage
 
+### Prerequisite: Python ≥ 3.10
+
+Make sure Python 3.10 or higher is installed. You can check with:
+
+```bash
+python3 --version
+```
+
+If Python is not installed or the version is too low, follow these steps:
+
+* On Ubuntu/Debian:
+
+```bash
+sudo apt update
+sudo apt install python3.11 python3.11-venv python3.11-dev
+```
+
+* On Windows or macOS: download and install from [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
 ### 1. **Create and activate a virtual environment**
 
 In your terminal, make sure you’re in the project root directory, then run:
