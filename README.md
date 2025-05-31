@@ -221,6 +221,7 @@ In order to add an annotation, click on the rectangle on the left and select sha
 <p align="center">
   <img src="CVAT.png" width="700" alt="High-Level Pipeline">
 </p>
+
 ___
 ### 7.Annotation export
 In order to export the annotations, CVAT permits multiple exporting formats. Go to Tasks click on Actions and select export task dataset. Choose the format that suits you best for further analysis.
