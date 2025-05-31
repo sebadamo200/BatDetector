@@ -177,7 +177,7 @@ Once CVAT is up and running (e.g., via Docker Compose), log in to the web interf
 
 ### 2. Create a New Project and Define the “bat” Label
 
-1. In the CVAT dashboard, click **“Create Project”** and give it a name (e.g., `Bat Detection QA`).
+1. In the CVAT dashboard, click **“Create Project”** and give it a name.
 2. In the **Label Constructor** field, paste the following JSON to define a single label called `"bat"` with an attribute to distinguish single vs. multiple instances:
 
    ```json
@@ -203,8 +203,28 @@ Once CVAT is up and running (e.g., via Docker Compose), log in to the web interf
      }
    ]
 ___
+### 3.Add your pictures 
+You can Now add your picture on which the model has run. 
+___
 
+### 4.Add your pictures 
+You can now add your picture on which the model has run and you you see you created task in the Tasks in the top navigation bar.
+___
 
+### 5.Upload annotations 
+Click on action and select upload annotations.
+Afterwards select the "COCO 1.0" format and put the generated output COCO file.
+___
+### 6.Annotation modification
+Go on to Tasks and open your task. Click on Job# and now you can begin looking at the pictures. You will see now the detected bats, and you can refine and add annotations if needed. To modify one annotation simply drag and pull the given rectangle around the bat. 
+In order to add an annotation, click on the rectangle on the left and select shape you can now create new annotations as well.
+<p align="center">
+  <img src="images/CVAT.png" width="700" alt="High-Level Pipeline">
+</p>
+___
+### 7.Annotation export
+In order to export the annotations, CVAT permits multiple exporting formats. Go to Tasks click on Actions and select export task dataset. Choose the format that suits you best for further analysis.
+___
 ## Acknowledgements
 
 This system was developed in collaboration with the **Natagora Microclimate Project**, a five-year initiative studying bat roost conditions in buildings across Wallonia, Belgium.
