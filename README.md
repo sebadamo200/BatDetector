@@ -200,7 +200,10 @@ Open `.coco.json` in CVAT to inspect and fix bounding boxes. This improves annot
 **7. Group Similar Images**
 Only process images with the same camera, background, and conditions together. If light varies, split images by time using `--num_splits`. This helps the model learn consistent patterns and improves accuracy.
 
-**8. Read the Logs**
+**8. Use ROI Rectangle for Cropping**
+Use the `--roi_rect` option to crop the relevant area of each image. This is especially useful when the camera captures extra space outside the main region of interest. Metadata or visual inspection can help define the best crop area (format: `x,y,w,h`).
+
+**9. Read the Logs**
 Check `summary.csv` and `predictions.csv` for confidence levels and errors. Use them to understand model behavior and refine inputs.
 
 ## Annotating Images with CVAT
