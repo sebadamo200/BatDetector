@@ -158,6 +158,52 @@ You can also fine-tune the detection behavior through the `config.py` file:
 | `--visualization`                   | Show intermediate outputs with OpenCV GUI              |
 
 ---
+## Annotating Images with CVAT
+
+We use [CVAT](https://github.com/openvinotoolkit/cvat) (Computer Vision Annotation Tool) to inspect and refine the model’s detections. Below are the steps to install CVAT, set up a “bat” label, and upload/download annotations in COCO format.
+
+---
+
+### 1. Install and Launch CVAT
+
+Follow the official CVAT installation guide:
+
+- **Documentation:**  
+  https://docs.cvat.ai/docs/administration/basics/installation/
+
+Once CVAT is up and running (e.g., via Docker Compose), log in to the web interface (typically at `http://localhost:8080/`).
+
+---
+
+### 2. Create a New Project and Define the “bat” Label
+
+1. In the CVAT dashboard, click **“Create Project”** and give it a name (e.g., `Bat Detection QA`).
+2. In the **Label Constructor** field, paste the following JSON to define a single label called `"bat"` with an attribute to distinguish single vs. multiple instances:
+
+   ```json
+   [
+     {
+       "name": "bat",
+       "id": 2,
+       "color": "#800040",
+       "type": "any",
+       "attributes": [
+         {
+           "id": 1,
+           "name": "SingleOrMultiple",
+           "input_type": "select",
+           "mutable": true,
+           "values": [
+             "single",
+             "multiple"
+           ],
+           "default_value": "single"
+         }
+       ]
+     }
+   ]
+___
+
 
 ## Acknowledgements
 
