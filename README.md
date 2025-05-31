@@ -115,6 +115,14 @@ You can use the generated **COCO JSON** annotations along with tools **CVAT** to
 
 ## Configuration Options
 
+You can also fine-tune the detection behavior through the `config.py` file:
+
+* Adjust the **confidence threshold** for classifying detections (`HIGH_CONF_THRESHOLD`, default: `0.85`).
+* Modify the **weighting between ViT and EfficientNet** in the ensemble:
+
+  * `ENSEMBLE_VIT_WEIGHT` (default: `0.85`)
+  * `ENSEMBLE_CNN_WEIGHT` (default: `0.15`)
+
 | Argument                            | Description                                            |
 | ----------------------------------- | ------------------------------------------------------ |
 | `--path_img_bats`                   | Directory with input images                            |
