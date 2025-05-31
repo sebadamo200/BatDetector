@@ -219,7 +219,7 @@ ___
 Go on to Tasks and open your task. Click on Job# and now you can begin looking at the pictures. You will see now the detected bats, and you can refine and add annotations if needed. To modify one annotation simply drag and pull the given rectangle around the bat. 
 In order to add an annotation, click on the rectangle on the left and select shape you can now create new annotations as well.
 <p align="center">
-  <img src="images/CVAT.png" width="700" alt="High-Level Pipeline">
+  <img src="CVAT.png" width="700" alt="High-Level Pipeline">
 </p>
 ___
 ### 7.Annotation export
