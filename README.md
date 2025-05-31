@@ -158,6 +158,51 @@ You can also fine-tune the detection behavior through the `config.py` file:
 | `--visualization`                   | Show intermediate outputs with OpenCV GUI              |
 
 ---
+
+## Best Camera Setup Tips
+
+
+
+**1. Fix the Camera Firmly**
+Mount the camera securely. Even small movements reduce accuracy. Keep the view fixed for all images and maintain a single, consistent background.
+
+**2. Keep Lighting Steady**
+Avoid bright sunlight or flickering lights from windows. Sudden changes confuse background subtraction. If lighting varies a lot, use `--num_splits` to split images by time (e.g. 24 = split into 24 time-based groups). Avoid low light when possible—while the model can handle darkness, good lighting improves results.
+
+**3. Good Camera Angle**
+If possible tilt the camera slightly upward. Make sure bats are fully visible in the frame and if possible too, avoid cropping bats at the edges. This helps the model detect them better.
+
+**4. Simple Background**
+Use flat, clean walls or ceilings. Avoid busy textures, vegetation, or moving objects like branches or curtains, this helps the background subtractor work better.
+
+---
+
+## Tips for Using the Pipeline
+
+**1. Add Background Images**
+Use the `--bg_path` option with empty-scene images (no bats). It helps the subtractor detect motion more reliably, we advise you to choose the first background images based on the time and advise you to choose at least 5 to 100 images.
+
+**2. Try Gamma Correction**
+For low-contrast images, try `--gamma_value 1.2` or `1.5` to improve visibility before classification.
+
+**3. Use `--visualization`**
+See bounding boxes visually to debug and find the best parameters for your scene.
+
+**4. Tune the Threshold and Weights**
+In `config.py`, adjust `HIGH_CONF_THRESHOLD` to filter predictions: increase to reduce false positives, decrease to catch more bats. Use `--visualization` to test first, then re-run with final settings. You can also change model weights: ViT (more accurate, slower), EfficientNet (faster, less precise). Tune them for your use case.
+
+**5. Use Both Models or Just One**
+The ensemble (EfficientNet + ViT) is robust. But you can use just one by setting its weight to 1.0 and the other to 0.0 in `config.py`.
+
+**6. Check Results in CVAT**
+Open `.coco.json` in CVAT to inspect and fix bounding boxes. This improves annotations and can be used grounth truth dataset for event better future results.
+
+**7. Group Similar Images**
+Only process images with the same camera, background, and conditions together. If light varies, split images by time using `--num_splits`. This helps the model learn consistent patterns and improves accuracy.
+
+**8. Read the Logs**
+Check `summary.csv` and `predictions.csv` for confidence levels and errors. Use them to understand model behavior and refine inputs.
+
 ## Annotating Images with CVAT
 
 We use [CVAT](https://github.com/openvinotoolkit/cvat) (Computer Vision Annotation Tool) to inspect and refine the model’s detections. Below are the steps to install CVAT, set up a “bat” label, and upload/download annotations in COCO format.
