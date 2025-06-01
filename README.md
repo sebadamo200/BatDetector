@@ -1,4 +1,4 @@
-# BatDetector: Open Source End-to-End Pipeline for Bat Monitoring
+# BatDetector: Modular Open Source Pipeline for Bat Monitoring
 
 ## Overview
 
