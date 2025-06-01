@@ -167,7 +167,7 @@ You can also fine-tune the detection behavior through the `config.py` file:
 Mount the camera securely. Even small movements reduce accuracy. Keep the view fixed for all images and maintain a single, consistent background.
 
 **2. Keep Lighting Steady**
-Avoid bright sunlight or flickering lights from windows. Sudden changes confuse background subtraction. If lighting varies a lot, use `--num_splits` to split images by time (e.g. 24 = split into 24 time-based groups). Avoid low light when possible—while the model can handle darkness, good lighting improves results.
+Avoid bright sunlight or flickering lights from windows. Sudden changes confuse background subtraction. If lighting varies a lot, use `--num_splits` to split images by time (e.g. 24 = split into 24 time-based groups). Avoid low light when possible, while the model can handle darkness, good lighting improves results.
 
 **3. Good Camera Angle**
 If possible tilt the camera slightly upward. Make sure bats are fully visible in the frame and if possible too, avoid cropping bats at the edges. This helps the model detect them better.
@@ -183,7 +183,7 @@ Use flat, clean walls or ceilings. Avoid busy textures, vegetation, or moving ob
 Use the `--bg_path` option with empty-scene images (no bats). It helps the subtractor detect motion more reliably, we advise you to choose the first background images based on the time and advise you to choose at least 5 to 100 images.
 
 **2. Try Gamma Correction**
-For low-contrast images, try `--gamma_value 1.2` or `1.5` to improve visibility before classification.
+For dark images, try `--gamma_value 1.2` or `1.5` to improve visibility before classification.
 
 **3. Use `--visualization`**
 See bounding boxes visually to debug and find the best parameters for your scene.
